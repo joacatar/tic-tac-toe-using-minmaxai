@@ -1,15 +1,15 @@
-# import connect_ai_alpha_beta_pruning as caiab
-import tictactoe_ai as tttai
+import tictactoe_aialphaandbeta as Tttaiab
+import tictactoe_ai as Tttai
 import TicTacToe as ttt
 
-SEARCH_DEPTH = 500
+SEARCH_DEPTH = 100
 tictactoe = ttt.TicTactoe()
 
 while tictactoe.has_winner() == 0 and not tictactoe.is_board_full():
     tictactoe.print_turn()
     # print('Make your move2 : ')
     # human_move2 = int(input())
-    tictactoe.play_move(tttai.choose_move(tictactoe, SEARCH_DEPTH))
+    tictactoe.play_move(Tttai.choose_move(tictactoe, SEARCH_DEPTH))
     # human_move_result2 = tictactoe.play_move(human_move2)
     tictactoe.print_board()
     print(tictactoe.has_winner())

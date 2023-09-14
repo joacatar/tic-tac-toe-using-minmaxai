@@ -1,6 +1,6 @@
 import copy
-import random
 import math
+import random
 
 # Set the min-max IDs, and pseudo infinity constants
 MIN = -1
@@ -40,13 +40,13 @@ def minmax(tictactoe, depth, min_or_max, move):
     best_max_move = -1
     # Get possible moves given the board size
     # moves = random.sample(range(0, tictactoe.board_size + 1), tictactoe.board_size)
-    # print(moves)
-    moves = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    # Try each move
+    moves = [n for n in range(9)]
+    random.shuffle(moves)
     for slot in moves:
         neighbor = copy.deepcopy(tictactoe)
         move_outcome = neighbor.play_move(slot)
         if move_outcome:
+            neighbor.print_board()
             # Recursively call minmax for the next state after playing a move
             best = minmax(neighbor, depth - 1, min_or_max * -1, slot)
             # Update the best score and best move
