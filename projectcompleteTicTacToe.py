@@ -293,7 +293,7 @@ def tic_tac_toe():
         # Command to use minimax algorithm with alpha beta
         # tictactoe.play_move(choose_move_ab(tictactoe, SEARCH_DEPTH))
         tictactoe.print_board()
-        if tictactoe.has_winner() == 0:
+        if tictactoe.has_winner() == 0 and not tictactoe.is_board_full():
             tictactoe.print_turn()
             human_move_result = False
             while human_move_result is False:
@@ -305,7 +305,10 @@ def tic_tac_toe():
                 human_move_result = tictactoe.play_move(human_move)
             tictactoe.print_board()
         time.sleep(1)
-    print(tictactoe.has_winner())
+    if tictactoe.has_winner() == 0:
+        print("It is a draw!")
+    else:
+        print(tictactoe.has_winner())
 
 
 def greeting():
