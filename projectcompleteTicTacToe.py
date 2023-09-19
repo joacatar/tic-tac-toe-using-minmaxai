@@ -1,3 +1,5 @@
+#Authorship:Joao Tarira working with  Amarra Houraney & Matthew Bush 
+
 from prettytable import PrettyTable
 import copy
 import math
