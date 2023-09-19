@@ -117,6 +117,11 @@ class TicTactoe:
         return False
 
     # determines if player has a row or column depending on the a,b,c values
+    # Determine if a player has a row or column depending on the 'a', 'b', and 'c' parameters.
+    # For rows, 'a' represents the starting slot, 'b' represents the difference between slots in a row,
+    # and 'c' represents the step size to iterate through the row slots (0, 1, 2).
+    # For columns, 'a' represents the starting slot, 'b' represents the difference between slots in a column,
+    # and 'c' represents the step size to iterate through the column slots (0, 3, 6).
     def has_a_row_or_column(self, player, a, b, c):
         for i in range(3):
             total = 0
@@ -225,6 +230,9 @@ def minmax(tictactoe_board, depth, min_or_max, move):
     best_max_move = -1
     # Get possible moves given the board size
     moves = [n for n in range(9)]
+    # To avoid repetitive outcomes when using the same depth over and over, we shuffle the list of possible moves.
+    # This ensures that the AI explores different move sequences and adds an element of unpredictability to its choices.
+    # By shuffling the moves, we prevent the AI from consistently making the same decisions when multiple moves yield the same score.
     random.shuffle(moves)
     for slot in moves:
         neighbor = copy.deepcopy(tictactoe_board)
@@ -262,6 +270,9 @@ def minmax_ab(tictactoe_board, depth, min_or_max, move, alpha, beta):
     best_max_move = -1
     moves = [n for n in range(9)]
     # moves = [ 0, 1, 2 .... 8]
+    # To avoid repetitive outcomes when using the same depth over and over, we shuffle the list of possible moves.
+    # This ensures that the AI explores different move sequences and adds an element of unpredictability to its choices.
+    # By shuffling the moves, we prevent the AI from consistently making the same decisions when multiple moves yield the same score.
     random.shuffle(moves)
     # moves = [ 1,6,3, ....]
     # Try each move
